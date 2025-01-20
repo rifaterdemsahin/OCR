@@ -1,2 +1,1 @@
-# notepad
-Practical Note Taking Repo Private
+Extract text from image using codespaces
