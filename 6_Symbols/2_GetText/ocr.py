@@ -1,6 +1,7 @@
 from PIL import Image
 import pytesseract
 import sys
+import os
 
 # 📄 Path to the image file is now passed as a parameter
 if len(sys.argv) != 2:
@@ -15,20 +16,27 @@ img = Image.open(image_path)
 # 🔍 Use pytesseract to do OCR on the image
 text = pytesseract.image_to_string(img)
 
-# 📝 Print the extracted text
-print(text)
+# # 📝 Print the extracted text
+
 # 🎨 Create an ASCII art box around the captured text
 def create_ascii_box(text):
-   lines = text.split('\n')
-   max_length = max(len(line) for line in lines)
-   border = '🟦' * (max_length + 4)
+   text = text.replace('\n', ' ')
+   max_length = len(text)
+   border_length = min(max_length + 2, 50)
+   top_border = '📷 ' * border_length
+   bottom_border = '📷 ' * border_length
    
-   print(border)
-   for line in lines:
-      print(f'🟦 {line.ljust(max_length)} 🟦')
-   print(border)
+   print(top_border)
+   print(f'  {text}')
+   print(bottom_border)
+
+
+# 🧹 Clear the terminal
+os.system('cls' if os.name == 'nt' else 'clear')
+
+print("----------- CAPTURED TEXT ---------- \n")
 
 # 📦 Print the text in an ASCII art box
 create_ascii_box(text)
 
-# 🏃‍♂️ Run the script with: python /workspaces/notepad/6.2_ocr.py <image_path>
+# 🏃‍♂️ Run the script with: python ./ocr.py image.png

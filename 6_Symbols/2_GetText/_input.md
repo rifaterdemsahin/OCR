@@ -1,5 +1,6 @@
 # Run Commands to get the text
 - cd /workspaces/notepad/6_Symbols/2_GetText
+- Capture image into the clipboard and delete the existing one
 - python ./ocr.py image.png
 
 
