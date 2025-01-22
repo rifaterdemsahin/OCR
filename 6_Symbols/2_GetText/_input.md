@@ -1,3 +1,8 @@
+# Run Commands to get the text
+- cd /workspaces/notepad/6_Symbols/2_GetText
+- python ./ocr.py image.png
+
+
 🌐 [Windmillcode Paste Text From Image](https://marketplace.visualstudio.com/items?itemName=windmillcode-publisher-0.windmillcode-paste-text-from-image)
 
 💖 Sponsor | 💸 Donate

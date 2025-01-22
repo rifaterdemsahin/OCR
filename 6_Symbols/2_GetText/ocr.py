@@ -17,5 +17,18 @@ text = pytesseract.image_to_string(img)
 
 # 📝 Print the extracted text
 print(text)
+# 🎨 Create an ASCII art box around the captured text
+def create_ascii_box(text):
+   lines = text.split('\n')
+   max_length = max(len(line) for line in lines)
+   border = '🟦' * (max_length + 4)
+   
+   print(border)
+   for line in lines:
+      print(f'🟦 {line.ljust(max_length)} 🟦')
+   print(border)
+
+# 📦 Print the text in an ASCII art box
+create_ascii_box(text)
 
 # 🏃‍♂️ Run the script with: python /workspaces/notepad/6.2_ocr.py <image_path>
