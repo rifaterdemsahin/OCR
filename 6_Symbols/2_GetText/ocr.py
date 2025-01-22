@@ -24,10 +24,8 @@ def create_ascii_box_no_line_breaks(text):
    text = text.replace('\n', ' ')
    max_length = len(text)
    border_length = min(max_length + 2, 50)
-   top_border = '📷 ' * border_length
    bottom_border = '📷 ' * border_length
    
-   print(top_border)
    print(f'  {text}')
    print(bottom_border)
 
@@ -36,10 +34,8 @@ def create_ascii_box_with_line_breaks(text):
    lines = text.split('\n')
    max_length = max(len(line) for line in lines)
    border_length = min(max_length + 2, 50)
-   top_border = '📷 ' * border_length
    bottom_border = '📷 ' * border_length
    
-   print(top_border)
    for line in lines:
       print(f'  {line}')
    print(bottom_border)
@@ -52,6 +48,7 @@ print("----------- CAPTURED TEXT ---------- \n")
 
 # 📦 Print the text in an ASCII art box
 create_ascii_box_with_line_breaks(text)
+print("-----------NOLINE BREAKS ---------- \n")
 create_ascii_box_no_line_breaks(text)
 
 # 🏃‍♂️ Run the script with: python ./ocr.py image.png
