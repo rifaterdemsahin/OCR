@@ -6,10 +6,10 @@
 
 
 
-- python -m venv myenv
+- python3 -m venv myenv
 - source myenv/bin/activate
-- pip install Pillow easyocr torch torchvision
-- python /workspaces/notepad/6_Symbols/2_GetText/ocr_easy.py ./image.png
+- pip3 install Pillow easyocr torch torchvision
+- python3 /workspaces/notepad/6_Symbols/2_GetText/ocr_easy.py ./image.png
 
 
 
