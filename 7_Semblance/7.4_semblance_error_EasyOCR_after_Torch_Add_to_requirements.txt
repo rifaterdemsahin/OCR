@@ -1,0 +1,146 @@
+@rifaterdemsahin ➜ /workspaces/notepad/6_Symbols/2_GetText (main) $ python ./ocr_easy.py image.png
+Traceback (most recent call last):
+  File "/workspaces/notepad/6_Symbols/2_GetText/./ocr_easy.py", line 2, in <module>
+    import easyocr
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/easyocr/__init__.py", line 1, in <module>
+    from .easyocr import Reader
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/easyocr/easyocr.py", line 3, in <module>
+    from .recognition import get_recognizer, get_text
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/easyocr/recognition.py", line 6, in <module>
+    import torchvision.transforms as transforms
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/torchvision/__init__.py", line 10, in <module>
+    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils  # usort:skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/torchvision/_meta_registrations.py", line 163, in <module>
+    @torch.library.register_fake("torchvision::nms")
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/torch/library.py", line 795, in register
+    use_lib._register_fake(op_name, func, _stacklevel=stacklevel + 1)
+  File "/home/codespace/.local/lib/python3.12/site-packages/torch/library.py", line 184, in _register_fake
+    handle = entry.fake_impl.register(func_to_register, source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/torch/_library/fake_impl.py", line 31, in register
+    if torch._C._dispatch_has_kernel_for_dispatch_key(self.qualname, "Meta"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: operator torchvision::nms does not exist
+
+torch==2.5.1
+torchvision==0.15.2
+easyocr==1.4
+
+
+
+pip install -r requirements.txt
+Requirement already satisfied: pytesseract in /usr/local/python/3.12.1/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (0.3.13)
+ERROR: Could not find a version that satisfies the requirement torch==1.12.1 (from versions: 2.2.0, 2.2.1, 2.2.2, 2.3.0, 2.3.1, 2.4.0, 2.4.1, 2.5.0, 2.5.1)
+ERROR: No matching distribution found for torch==1.12.1
+@rifaterdemsahin ➜ /workspaces/notepad/6_Symbols/2_GetText (main) $ 
+
+om -r requirements.txt (line 2)) (2.5.1+cpu)
+ERROR: Ignored the following yanked versions: 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.2.post2, 0.2.2.post3
+ERROR: Could not find a version that satisfies the requirement torchvision==0.15.2 (from versions: 0.17.0, 0.17.1, 0.17.2, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.20.0, 0.20.1)
+ERROR: No matching distribution found for torchvision==0.15.2
+
+---
+
+It looks like you're encountering a compatibility issue between the versions of `torch` and `torchvision` you're using. The error `RuntimeError: operator torchvision::nms does not exist` suggests that the `nms` operator is not available in the version of `torchvision` you have installed[1](https://github.com/pytorch/pytorch/issues/122494)[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829).
+
+Here are a few steps to resolve this issue:
+
+1. **Check Compatibility**: Ensure that the versions of `torch` and `torchvision` you are using are compatible. You can refer to the PyTorch compatibility matrix to find compatible versions.
+
+2. **Update `torch` and `torchvision`**: Try updating both `torch` and `torchvision` to the latest versions that are known to work together. You can do this by running:
+    ```bash
+    pip install torch torchvision --upgrade
+    ```
+
+3. **Reinstall Specific Versions**: If you need specific versions, make sure they are compatible. For example, you can install `torch` 2.5.1 and a compatible version of `torchvision`:
+    ```bash
+    pip install torch==2.5.1 torchvision==0.20.1
+    ```
+
+4. **Check for CPU/GPU Compatibility**: Ensure that you are installing the correct binaries for your hardware (CPU or GPU). Sometimes, CPU-only installations might miss certain operators.
+
+5. **Clear Cache and Reinstall**: Sometimes, clearing the pip cache and reinstalling can help resolve version conflicts:
+    ```bash
+    pip cache purge
+    pip install torch torchvision --upgrade
+    ```
+
+Try these steps and let me know if you encounter any further issues! 😊
+
+[1](https://github.com/pytorch/pytorch/issues/122494): [GitHub Issue on PyTorch](https://github.com/pytorch/pytorch/issues/122494)
+[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829): [PyTorch Forums Discussion](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829)
+
+
+--------
+
+It seems like the issue persists. This error is often related to a mismatch between the versions of `torch` and `torchvision`[1](https://github.com/pytorch/pytorch/issues/122494)[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829). Here are some additional steps you can try:
+
+1. **Ensure Compatibility**: Double-check the compatibility between `torch` and `torchvision`. You can refer to the PyTorch compatibility matrix to find compatible versions.
+
+2. **Reinstall Specific Versions**: Try installing specific versions of `torch` and `torchvision` that are known to work together. For example:
+    ```bash
+    pip install torch==2.5.1 torchvision==0.20.1
+    ```
+
+3. **Use CPU-Only Versions**: If you are using a CPU-only environment, ensure that you are installing the CPU-only versions of `torch` and `torchvision`. Sometimes, the CPU-only installations might miss certain operators. You can specify the CPU-only versions explicitly:
+    ```bash
+    pip install torch==2.5.1+cpu torchvision==0.20.1+cpu
+    ```
+
+4. **Clear Cache and Reinstall**: Clear the pip cache and reinstall the packages to ensure there are no conflicts:
+    ```bash
+    pip cache purge
+    pip install torch torchvision --upgrade
+    ```
+
+5. **Check for Updates**: Sometimes, the issue might be resolved in newer versions. Check if there are any updates available for `torch` and `torchvision`:
+    ```bash
+    pip install torch torchvision --upgrade
+    ```
+
+6. **Alternative Installation Method**: If the issue persists, try using a different installation method, such as conda:
+    ```bash
+    conda install pytorch torchvision torchaudio cpuonly -c pytorch
+    ```
+
+Give these steps a try and let me know if you encounter any further issues! 😊
+
+[1](https://github.com/pytorch/pytorch/issues/122494): [GitHub Issue on PyTorch](https://github.com/pytorch/pytorch/issues/122494)
+[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829): [PyTorch Forums Discussion](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829)
+
+It looks like the issue is still persisting. This error is often related to a mismatch between the versions of `torch` and `torchvision`[1](https://github.com/pytorch/pytorch/issues/122494)[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829). Here are a few more steps you can try:
+
+1. **Ensure Compatibility**: Double-check the compatibility between `torch` and `torchvision`. You can refer to the PyTorch compatibility matrix to find compatible versions.
+
+2. **Reinstall Specific Versions**: Try installing specific versions of `torch` and `torchvision` that are known to work together. For example:
+    ```bash
+    pip install torch==2.5.1 torchvision==0.20.1
+    ```
+
+3. **Use CPU-Only Versions**: If you are using a CPU-only environment, ensure that you are installing the CPU-only versions of `torch` and `torchvision`. Sometimes, the CPU-only installations might miss certain operators. You can specify the CPU-only versions explicitly:
+    ```bash
+    pip install torch==2.5.1+cpu torchvision==0.20.1+cpu
+    ```
+
+4. **Clear Cache and Reinstall**: Clear the pip cache and reinstall the packages to ensure there are no conflicts:
+    ```bash
+    pip cache purge
+    pip install torch torchvision --upgrade
+    ```
+
+5. **Check for Updates**: Sometimes, the issue might be resolved in newer versions. Check if there are any updates available for `torch` and `torchvision`:
+    ```bash
+    pip install torch torchvision --upgrade
+    ```
+
+6. **Alternative Installation Method**: If the issue persists, try using a different installation method, such as conda:
+    ```bash
+    conda install pytorch torchvision torchaudio cpuonly -c pytorch
+    ```
+
+Give these steps a try and let me know if you encounter any further issues! 😊
+
+[1](https://github.com/pytorch/pytorch/issues/122494): [GitHub Issue on PyTorch](https://github.com/pytorch/pytorch/issues/122494)
+[2](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829): [PyTorch Forums Discussion](https://discuss.pytorch.org/t/runtimeerror-operator-torchvision-nms-does-not-exist/192829)
