@@ -1,0 +1,9 @@
+easyocr # 👁️ Optical Character Recognition (OCR) library
+pytesseract # 📝 Python-tesseract, another OCR tool
+torch # 🔥
+torchvision # 📷
+
+# Manual Installs
+#pip install easyocr # 👁️
+#pip install pytesseract # 📝
+#pip install --upgrade torch torchvision # 🔥📷

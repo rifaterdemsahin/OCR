@@ -2,8 +2,10 @@
 - cd /workspaces/notepad/6_Symbols/2_GetText
 - Capture image into the clipboard and delete the existing one
 - python ./ocr.py image.png
+- python ./ocr_easy.py image.png
 
 
+Extension VSCODE on Local
 🌐 [Windmillcode Paste Text From Image](https://marketplace.visualstudio.com/items?itemName=windmillcode-publisher-0.windmillcode-paste-text-from-image)
 
 💖 Sponsor | 💸 Donate
