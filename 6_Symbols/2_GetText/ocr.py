@@ -19,7 +19,8 @@ text = pytesseract.image_to_string(img)
 # # 📝 Print the extracted text
 
 # 🎨 Create an ASCII art box around the captured text
-def create_ascii_box(text):
+# Version 1: No line breaks
+def create_ascii_box_no_line_breaks(text):
    text = text.replace('\n', ' ')
    max_length = len(text)
    border_length = min(max_length + 2, 50)
@@ -30,6 +31,19 @@ def create_ascii_box(text):
    print(f'  {text}')
    print(bottom_border)
 
+# Version 2: With line breaks
+def create_ascii_box_with_line_breaks(text):
+   lines = text.split('\n')
+   max_length = max(len(line) for line in lines)
+   border_length = min(max_length + 2, 50)
+   top_border = '📷 ' * border_length
+   bottom_border = '📷 ' * border_length
+   
+   print(top_border)
+   for line in lines:
+      print(f'  {line}')
+   print(bottom_border)
+
 
 # 🧹 Clear the terminal
 os.system('cls' if os.name == 'nt' else 'clear')
@@ -37,6 +51,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 print("----------- CAPTURED TEXT ---------- \n")
 
 # 📦 Print the text in an ASCII art box
-create_ascii_box(text)
+create_ascii_box_with_line_breaks(text)
+create_ascii_box_no_line_breaks(text)
 
 # 🏃‍♂️ Run the script with: python ./ocr.py image.png
