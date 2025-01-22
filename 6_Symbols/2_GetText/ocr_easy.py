@@ -5,7 +5,7 @@ import os
 
 # 📄 Path to the image file is now passed as a parameter
 if len(sys.argv) != 2:
-   print("Usage: python /workspaces/notepad/6.2_ocr.py <image_path>")
+   print("Usage: python /workspaces/notepad/6_Symbols/2_GetText/ocr_easy.py ./image.png")
    sys.exit(1)
 
 image_path = sys.argv[1]
