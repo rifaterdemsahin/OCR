@@ -3,7 +3,14 @@
 - Capture image into the clipboard and delete the existing one
 - pip install -r requirements.txt
 - python ./ocr.py image.png
-- python ./ocr_easy.py image.png
+
+
+
+- python -m venv myenv
+- source myenv/bin/activate
+- pip install Pillow easyocr torch torchvision
+- python /workspaces/notepad/6_Symbols/2_GetText/ocr_easy.py ./image.png
+
 
 
 Extension VSCODE on Local
