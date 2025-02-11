@@ -1,14 +1,15 @@
-# Run Commands to get the text
+# Run on desktop
+## Run Commands to get the text
 - cd /workspaces/notepad/6_Symbols/4_GetTextLocal
 - python3 -m venv myenv
-- source myenv/bin/activate
-- C:\projects\OCR\6_Symbols\4_GetTextLocal\myenv\Scripts\activate
 - C:\projects\OCR\6_Symbols\4_GetTextLocal\myenv\Scripts\Activate.ps1
-- pip3 install Pillow torch torchvision easyocr
-- python3 /workspaces/notepad/6_Symbols/2_GetText/ocr_easy.py ./image.png
+- pip3 install Pillow torch torchvision tesseractocr
+- install exe https://github.com/UB-Mannheim/tesseract/wiki
+- python3 /workspaces/notepad/6_Symbols/2_GetText/tesseract-ocr.py ./image.png
 
 
 ---
+## Run in VSCode
 Extension VSCODE on Local
 🌐 [Windmillcode Paste Text From Image](https://marketplace.visualstudio.com/items?itemName=windmillcode-publisher-0.windmillcode-paste-text-from-image)
 
